@@ -1,7 +1,7 @@
 from flask_login import current_user
 from flask import abort
 from functools import wraps
-from . import bcrypt, db, session
+from .project import bcrypt, db, session
 from flask_login import login_user
 
 def hash_password(password):
