@@ -1,1 +1,108 @@
 {% extends 'base_layout.html' %}
+
+{% block content %}
+    <!-- Inter font for clean typography -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for a subtle agricultural theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #2E6F40; /* Updated deep forest green background */
+            color: #e5e7eb; /* Light gray text for readability */
+        }
+        .navbar {
+            background-color: #f5f5f5; /* Off-white for the navbar */
+            color: #1f2937; /* Dark text for contrast */
+        }
+        .welcome-banner {
+            background-image: url('https://source.unsplash.com/random/1600x600/?farm,rural,crops');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+        /* Style for the mobile menu dropdown */
+        .mobile-menu-container {
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu-container.active {
+            max-height: 500px; /* A value large enough to show all items */
+        }
+    </style>
+    <!-- Main Content Area -->
+    <main>
+        <!-- Welcome Banner -->
+        <div class="welcome-banner text-center py-28 md:py-40 flex flex-col items-center justify-center rounded-b-xl shadow-lg">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">Welcome to AgroBridge</h1>
+            <p class="text-xl md:text-3xl font-medium">Connecting Farmers to Markets, Seamlessly.</p>
+        </div>
+
+        <div class="container mx-auto px-4 mt-8">
+
+            <!-- Featured Products / Dashboard section -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 text-center text-white">Your Dashboard</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Dashboard Card 1: Your Listings -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fas fa-seedling text-3xl text-green-600"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">My Listings</h3>
+                        </div>
+                        <p class="text-gray-600">View and manage your current produce listings. You have <span class="font-bold text-green-700">5 active listings</span>.</p>
+                        <a href="#" class="mt-4 inline-block text-green-800 hover:text-green-900 font-medium">Manage Listings &rarr;</a>
+                    </div>
+
+                    <!-- Dashboard Card 2: Market Requests -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fas fa-tractor text-3xl text-yellow-600"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">Market Requests</h3>
+                        </div>
+                        <p class="text-gray-600">See what buyers are looking for. You have <span class="font-bold text-yellow-700">2 new requests</span>.</p>
+                        <a href="#" class="mt-4 inline-block text-green-800 hover:text-green-900 font-medium">View Requests &rarr;</a>
+                    </div>
+
+                    <!-- Dashboard Card 3: Price Predictor -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fas fa-chart-line text-3xl text-red-600"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">Price Predictor</h3>
+                        </div>
+                        <p class="text-gray-600">Predict future prices for your crops to make informed decisions.</p>
+                        <a href="#" class="mt-4 inline-block text-green-800 hover:text-green-900 font-medium">Predict Prices &rarr;</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-8 text-center text-gray-600">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 AgroBridge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+        });
+    </script>
+{% endblock %}
+
+
