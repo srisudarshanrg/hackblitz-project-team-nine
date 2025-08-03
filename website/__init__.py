@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from .views import home
 
+
 db = SQLAlchemy()
 DB_NAMES = ["database.db"]
 
@@ -23,9 +24,11 @@ def create_databases(app):
             
 def register_blueprints(app):
     from .auth import auth
+    from .routes import buyer
     
     app.register_blueprint(home, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
+    app.register_blueprint(buyer, url_prefix="/")
 
 def create_login_manager(app):
     from .models import Buyer, Seller
