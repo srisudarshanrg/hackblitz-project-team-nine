@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Buyer Marketplace
+{% endblock %}
+
+{% block content %}
+    <table class="table table-dark table-striped table-hover">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Produce</td>
+                <td>Quantity(quintals)</td>
+                <td>Price(rupees)</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produce in produces %}
+                <tr>
+                    <td>{{produce.id}}</td>
+                    <td>{{produce.produce_name}}</td>
+                    <td>{{produce.quantity}}</td>
+                    <td>{{produce.price}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

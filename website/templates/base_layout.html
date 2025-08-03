@@ -27,7 +27,7 @@
                     {% if user %}
                         {% if role == "buyer" %}
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{url_for('home.buyer_marketplace')}}">Buyer Marketplace</a>
+                                <a class="nav-link active" aria-current="page" href="{{url_for('buyer.buyer_marketplace')}}">Buyer Marketplace</a>
                             </li>
                         {% elif role == "seller" %}
                             <li class="nav-item">

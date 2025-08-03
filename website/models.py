@@ -24,7 +24,9 @@ class Produce(db.Model):
     __tablename__ = "produce"
     
     id = db.Column(db.Integer(), primary_key=True)
-    produce_name = db.Column(db.String())    
+    produce_name = db.Column(db.String())
+    quantity = db.Column(db.Integer(), nullable=False)
+    price = db.Column(db.Integer(), nullable=False)    
     seller_id = db.Column(db.Integer(), db.ForeignKey("seller.id"))
 
 class BuyProduce(db.Model):

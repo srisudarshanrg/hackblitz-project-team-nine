@@ -39,12 +39,6 @@ def seller_marketplace():
     
     return render_template("seller_marketplace.html", user=current_user, role=current_user.get_role())
 
-@home.route("/buyer-marketplace")
-@roles_required("buyer")
-@login_required
-def buyer_marketplace():
-    return render_template("seller_marketplace.html", user=current_user, role=current_user.get_role())
-
 @home.route("/logout")
 @login_required
 @roles_required("seller", "buyer")
