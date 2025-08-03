@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, session
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
@@ -8,6 +8,8 @@ from .views import home
 
 db = SQLAlchemy()
 DB_NAMES = ["database.db"]
+
+session = session
 
 def create_databases(app):
     for db_name in DB_NAMES:
@@ -26,14 +28,18 @@ def register_blueprints(app):
     app.register_blueprint(auth, url_prefix="/")
 
 def create_login_manager(app):
-    from .models import User
+    from .models import Buyer, Seller
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
     
     @login_manager.user_loader
-    def load_user(id):
-        return User.query.get(int(id))
+    def load_user(user_id):
+        user_type = session.get("user_type")
+        if user_type == "buyer":        
+            return Buyer.query.get(int(user_id))
+        if user_type == "seller":
+            return Seller.query.get(int(user_id))
 
 def create_app():
     app = Flask(__name__)

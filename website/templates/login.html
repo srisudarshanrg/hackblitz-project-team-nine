@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <form method="post">
+        <input type="text" placeholder="Username" name="username" id="username" class="form-control">
+        <br>
+        <input type="password" placeholder="Password" name="password" id="password" class="form-control">
+        <br>
+        <select class="form-select" name="role" aria-label="Default select example">
+            <option selected>Role</option>
+            <option value="Buyer">Buyer</option>
+            <option value="Seller">Seller</option>
+        </select>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

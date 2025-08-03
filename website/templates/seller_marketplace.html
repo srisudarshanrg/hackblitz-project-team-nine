@@ -1,0 +1,29 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <form method="post" style="padding: 2%">
+        <input type="hidden" name="price_predictor">
+        <h1>Crop Price Predictor</h1>
+        <hr>
+        <input type="text" name="crop_name" id="crop_name" placeholder="Crop Name" class="form-control">
+        <br>
+        <input type="number" name="quantity" id="quantity" placeholder="Quantity(quintals)" class="form-control">
+        <br>
+        <input type="text" name="state" id="state" placeholder="State(Indian State)" class="form-control">
+        <br>
+        <input type="text" name="weather" id="weather" placeholder="Weather" class="form-control">
+        <br>
+        <button type="submit" class="btn btn-success">Get Price Prediction(rupees)</button>
+
+        {% if response %}
+            <br>
+            <br>
+            <div class="text-bg-success" style="border-radius: 5px; width: 80%; padding: 0.5%;">
+                <h3>Estimated Price</h3>
+                <p><i class="fa-solid fa-indian-rupee-sign"></i> {{response}}</p>
+            </div>
+        {% endif %}
+    </form>
+
+    <hr>
+{% endblock %}
